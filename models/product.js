@@ -7,9 +7,15 @@ const productSchema = Schema({
     required: true,
     unique: true,
   },
-  title: {
+   title: {
     type: String,
     required: true,
+    validate: {
+      validator: function (value) {
+        return value.length > 12;
+      },
+      message: "Title must have more than 12 characters",
+    },
   },
   imagePath: {
     type: String,
